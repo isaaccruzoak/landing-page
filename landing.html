@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Isaac | Desenvolvedor Web</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: radial-gradient(circle at top right, #0d1117, #1a1f2b);
+      color: #fff;
+      overflow-x: hidden;
+      transition: background 0.6s, color 0.6s;
+    }
+
+    body.light-mode {
+      background: linear-gradient(135deg, #ffffff, #e4e9f2);
+      color: #000;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 10%;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #00c3ff;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    body.light-mode nav a {
+      color: #000;
+    }
+
+    nav a:hover {
+      color: #00c3ff;
+    }
+
+    #theme-toggle {
+      background: none;
+      border: none;
+      color: #00c3ff;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    #hero h2 {
+      font-size: 3rem;
+      background: linear-gradient(to right, #00c3ff, #7d2ae8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeDown 1.5s ease;
+    }
+
+    #hero .typing {
+      color: #004cff;
+      font-weight: bold;
+      border-right: 2px solid #00c3ff;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    #hero p {
+      max-width: 600px;
+      margin-top: 15px;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .btn {
+      margin-top: 25px;
+      background: linear-gradient(90deg, #00c3ff, #7d2ae8);
+      padding: 12px 25px;
+      border-radius: 30px;
+      border: none;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+    }
+
+    .projetos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      width: 100%;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 20px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 0px 20px #00c3ff44;
+    }
+
+    .card h3 {
+      color: #00c3ff;
+      margin-bottom: 10px;
+    }
+
+    form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    body.light-mode input, body.light-mode textarea {
+      background: rgba(0,0,0,0.1);
+      color: #000;
+    }
+
+    footer {
+      background: rgba(255,255,255,0.05);
+      padding: 30px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    @keyframes fadeDown {
+      0% { opacity: 0; transform: translateY(-50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+  <header>
+    <h1>Isaac.dev</h1>
+    <nav>
+      <a href="#hero">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+      <button id="theme-toggle">🌙</button>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <h2>Olá, eu sou <span class="typing"></span> 👋</h2>
+    <p>Desenvolvedor Front-end e Back-end apaixonado por criar experiências digitais modernas e interativas.</p>
+    <button class="btn" onclick="scrollToSection('projetos')">Ver meus projetos</button>
+  </section>
+
+  <section id="sobre">
+    <h2>Sobre mim</h2>
+    <p>Sou um programador especializado em HTML, CSS, JavaScript e Python. Crio sites, sistemas e automações sob medida com design responsivo e foco na experiência do usuário.</p>
+  </section>
+
+  <section id="projetos">
+    <h2>Meus Projetos</h2>
+    <div class="projetos">
+      <div class="card">
+        <h3>Portfólio Pessoal</h3>
+        <p>Meu site pessoal com animações e design moderno.</p>
+      </div>
+      <div class="card">
+        <h3>Sistema de Automação</h3>
+        <p>Automatização com Python para tarefas do dia a dia.</p>
+      </div>
+      <div class="card">
+        <h3>Landing Page Criativa</h3>
+        <p>Página com animações e efeitos para empresas e criadores.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <h2>Entre em contato</h2>
+    <p>Quer conversar sobre um projeto? Me mande uma mensagem!</p>
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Seu nome" required />
+      <input type="email" id="email" placeholder="Seu e-mail" required />
+      <textarea id="message" rows="5" placeholder="Sua mensagem..." required></textarea>
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Isaac | Todos os direitos reservados</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <script>
+    // Partículas animadas
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 50 },
+        "color": { "value": "#00c3ff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.4 },
+        "size": { "value": 3 },
+        "move": { "enable": true, "speed": 2 }
+      }
+    });
+
+    // Efeito de digitação
+    const text = "Isaac, Desenvolvedor Web";
+    const typing = document.querySelector(".typing");
+    let index = 0;
+    function type() {
+      if (index < text.length) {
+        typing.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, 100);
+      }
+    }
+    type();
+
+    // ScrollReveal
+    ScrollReveal().reveal('section h2', { delay: 200, origin: 'top', distance: '50px', duration: 800 });
+    ScrollReveal().reveal('.card', { interval: 150, origin: 'bottom', distance: '50px', duration: 800 });
+
+    // Scroll suave
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Modo claro/escuro
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      toggle.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+    });
+
+    // EmailJS (coloque suas credenciais reais do emailjs)
+    emailjs.init("SEU_USER_ID_EMAILJS");
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      emailjs.send("SEU_SERVICE_ID", "SEU_TEMPLATE_ID", {
+        from_name: document.getElementById("name").value,
+        from_email: document.getElementById("email").value,
+        message: document.getElementById("message").value
+      })
+      .then(() => alert("Mensagem enviada com sucesso!"))
+      .catch(() => alert("Erro ao enviar. Tente novamente."));
+    });
+  </script>
+</body>
+</html>
+
